@@ -6,6 +6,13 @@ import re
 import nltk
 from nltk.stem import LancasterStemmer
 from nltk.corpus import stopwords
+import nltk
+
+# Download NLTK data if not already present
+nltk.download('punkt_tab')
+nltk.download('punkt')
+nltk.download('stopwords')
+
 
 # ===== Load Model, Tokenizer & LabelEncoder =====
 model = load_model("lstm_model.h5")
@@ -133,3 +140,4 @@ if st.button("Predict"):
         emotion = le.inverse_transform([pred_class])[0]
 
         st.markdown(f"<div class='result-box'>Predicted Emotion: <b>{emotion}</b></div>", unsafe_allow_html=True)
+
